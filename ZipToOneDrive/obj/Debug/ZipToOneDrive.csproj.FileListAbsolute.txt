@@ -1,0 +1,9 @@
+C:\GitHub\ZipToOneDrive\ZipToOneDrive\bin\Debug\ZipToOneDrive.exe.config
+C:\GitHub\ZipToOneDrive\ZipToOneDrive\bin\Debug\ZipToOneDrive.exe
+C:\GitHub\ZipToOneDrive\ZipToOneDrive\bin\Debug\ZipToOneDrive.pdb
+C:\GitHub\ZipToOneDrive\ZipToOneDrive\bin\Debug\Ionic.Zip.dll
+C:\GitHub\ZipToOneDrive\ZipToOneDrive\obj\Debug\ZipToOneDrive.csprojAssemblyReference.cache
+C:\GitHub\ZipToOneDrive\ZipToOneDrive\obj\Debug\ZipToOneDrive.csproj.CoreCompileInputs.cache
+C:\GitHub\ZipToOneDrive\ZipToOneDrive\obj\Debug\ZipToOneDrive.csproj.CopyComplete
+C:\GitHub\ZipToOneDrive\ZipToOneDrive\obj\Debug\ZipToOneDrive.exe
+C:\GitHub\ZipToOneDrive\ZipToOneDrive\obj\Debug\ZipToOneDrive.pdb
