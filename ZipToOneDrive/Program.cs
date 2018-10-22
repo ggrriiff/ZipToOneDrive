@@ -17,6 +17,7 @@ namespace ZipToOneDrive
 
             //Debug
             //args = new string[] {@"C:\Java"};
+            //args = new string[] { @"C:\Test_zaZip" };
 
             //Loop through list
             for (int i = 0; i < args.Length; i++)
@@ -38,11 +39,13 @@ namespace ZipToOneDrive
                     zip.UseZip64WhenSaving = Zip64Option.Always;
                     zip.CompressionLevel = Ionic.Zlib.CompressionLevel.None;
                     zip.Password = password;
-
+                    zip.SaveProgress += Zip_SaveProgress;
+                    
                     zip.AddDirectory(args.ElementAt(i));
                     zip.Save();
 
                     Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine();
                     Console.WriteLine("Zipping successful !!!");
                     Console.WriteLine();
                 }
@@ -57,7 +60,25 @@ namespace ZipToOneDrive
             }
 
             Console.ReadKey();
+        }
 
+        private static void Zip_SaveProgress(object sender, SaveProgressEventArgs e)
+        {
+            long bytesTransferred = e.BytesTransferred;
+            long totalBytesToTransfer = e.TotalBytesToTransfer;
+            int ukupno = e.EntriesTotal;
+            int trenutno = e.EntriesSaved;
+
+            if ((bytesTransferred % 17 == 0 && totalBytesToTransfer > 0) || 
+                (bytesTransferred == totalBytesToTransfer && totalBytesToTransfer > 0))
+            {
+                double postotak = (double)bytesTransferred / (double)totalBytesToTransfer * 100;
+                postotak = Math.Round(postotak, 2);
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("\r{0}%   ", postotak);
+                Console.ResetColor();
+            }
         }
 
         private static void GetXMLParams(out string password, out string oneDrivePath)
