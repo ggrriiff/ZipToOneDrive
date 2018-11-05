@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Ionic.Zip;
+using System.IO;
 
 namespace ZipToOneDrive
 {
@@ -18,6 +19,7 @@ namespace ZipToOneDrive
             //Debug
             //args = new string[] {@"C:\Java"};
             //args = new string[] { @"C:\Test_zaZip" };
+            args = new string[] { @"C:\TestVideo\Test_pic\test_1.jpg"};
 
             //Loop through list
             for (int i = 0; i < args.Length; i++)
@@ -40,8 +42,15 @@ namespace ZipToOneDrive
                     zip.CompressionLevel = Ionic.Zlib.CompressionLevel.None;
                     zip.Password = password;
                     zip.SaveProgress += Zip_SaveProgress;
-                    
-                    zip.AddDirectory(args.ElementAt(i));
+
+                    // get the file attributes for file or directory
+                    FileAttributes attr = File.GetAttributes(putanja);
+
+                    if (attr.HasFlag(FileAttributes.Directory))
+                        zip.AddDirectory(args.ElementAt(i));
+                    else
+                        zip.AddFile(args.ElementAt(i));
+
                     zip.Save();
 
                     Console.ForegroundColor = ConsoleColor.Green;
