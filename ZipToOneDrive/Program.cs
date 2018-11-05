@@ -19,7 +19,7 @@ namespace ZipToOneDrive
             //Debug
             //args = new string[] {@"C:\Java"};
             //args = new string[] { @"C:\Test_zaZip" };
-            args = new string[] { @"C:\TestVideo\Test_pic\test_1.jpg"};
+            //args = new string[] { @"C:\TestVideo\Test_pic\test_1.jpg"};
 
             //Loop through list
             for (int i = 0; i < args.Length; i++)
